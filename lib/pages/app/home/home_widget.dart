@@ -278,8 +278,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 30.0, 0.0, 0.0),
                                 child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    context.goNamed(TrackWidget.routeName);
                                   },
                                   text: 'Comenzar',
                                   icon: Icon(
