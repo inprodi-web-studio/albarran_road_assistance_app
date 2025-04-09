@@ -67,5 +67,15 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Esta aplicación utiliza tu ubicación para proporcionar servicios personalizados mientras la app está en uso.</string>
+
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Esta aplicación requiere acceso a tu ubicación en todo momento para ofrecer funcionalidades avanzadas, incluso cuando la app está en segundo plano.</string>
 </dict>
 </plist>
