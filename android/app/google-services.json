@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "593816543777",
+    "project_id": "road-asisstance",
+    "storage_bucket": "road-asisstance.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593816543777:android:a2f1efcc65f4ad3c903960",
+        "android_client_info": {
+          "package_name": "com.albarran.roadagent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKmCkE1187vpPFOiVCFzwUzgMJrOlizOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

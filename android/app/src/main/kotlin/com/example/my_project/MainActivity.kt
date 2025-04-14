@@ -1,4 +1,4 @@
-package com.albarran.roadassistant
+package com.albarran.roadagent
 
 import io.flutter.embedding.android.FlutterActivity
 

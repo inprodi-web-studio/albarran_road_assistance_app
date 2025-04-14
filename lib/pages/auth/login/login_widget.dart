@@ -1,6 +1,4 @@
-import '/auth/custom_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
-import '/backend/schema/structs/index.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -325,7 +323,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ),
                                 FFButtonWidget(
                                   onPressed: () async {
-                                    var _shouldSetState = false;
                                     _model.formValidation = true;
                                     if (_model.formKey.currentState == null ||
                                         !_model.formKey.currentState!
@@ -334,138 +331,31 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           () => _model.formValidation = false);
                                       return;
                                     }
-                                    _shouldSetState = true;
-                                    _model.loginOutput =
-                                        await AuthGroup.loginCall.call(
-                                      email: _model.emailTextController.text,
-                                      password:
-                                          _model.passwordTextController.text,
+                                    GoRouter.of(context).prepareAuthEvent();
+
+                                    final user =
+                                        await authManager.signInWithEmail(
+                                      context,
+                                      _model.emailTextController.text,
+                                      _model.passwordTextController.text,
                                     );
-
-                                    _shouldSetState = true;
-                                    if ((_model.loginOutput?.succeeded ??
-                                        true)) {
-                                      GoRouter.of(context).prepareAuthEvent();
-                                      await authManager.signIn(
-                                        authenticationToken: getJsonField(
-                                          (_model.loginOutput?.jsonBody ?? ''),
-                                          r'''$.token''',
-                                        ).toString(),
-                                        userData: UserStruct(
-                                          name: getJsonField(
-                                            (_model.loginOutput?.jsonBody ??
-                                                ''),
-                                            r'''$.name''',
-                                          ).toString(),
-                                          middleName: getJsonField(
-                                            (_model.loginOutput?.jsonBody ??
-                                                ''),
-                                            r'''$.middleName''',
-                                          ).toString(),
-                                          lastName: getJsonField(
-                                            (_model.loginOutput?.jsonBody ??
-                                                ''),
-                                            r'''$.lastName''',
-                                          ).toString(),
-                                        ),
-                                      );
-
-                                      context.goNamedAuth(
-                                        HomeWidget.routeName,
-                                        context.mounted,
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.bottomToTop,
-                                          ),
-                                        },
-                                      );
-
-                                      if (_shouldSetState) safeSetState(() {});
+                                    if (user == null) {
                                       return;
-                                    } else {
-                                      if (AuthGroup.loginCall.errorCode(
-                                            (_model.loginOutput?.jsonBody ??
-                                                ''),
-                                          ) ==
-                                          404) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return AlertDialog(
-                                              title:
-                                                  Text('Accesos Incorrectos'),
-                                              content: Text(
-                                                  'Las credenciales que has ingresado son incorrectas.'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Aceptar'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      } else if (AuthGroup.loginCall.errorCode(
-                                            (_model.loginOutput?.jsonBody ??
-                                                ''),
-                                          ) ==
-                                          400) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return AlertDialog(
-                                              title: Text('Cuenta Bloqueada'),
-                                              content: Text(
-                                                  'Tu usuario ha sido desactivado temporalmente por un administrador.'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Aceptar'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Error desconocido',
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 12.0,
-                                              ),
-                                            ),
-                                            duration:
-                                                Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
-                                          ),
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
                                     }
 
-                                    if (_shouldSetState) safeSetState(() {});
+                                    context.goNamedAuth(
+                                      HomeWidget.routeName,
+                                      context.mounted,
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.bottomToTop,
+                                        ),
+                                      },
+                                    );
+
+                                    safeSetState(() {});
                                   },
                                   text: 'Iniciar Sesión',
                                   options: FFButtonOptions(

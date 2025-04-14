@@ -63,9 +63,7 @@ class OrdersGroup {
     String? token = '',
   }) =>
       'https://mayfly-intimate-polliwog.ngrok-free.app/api';
-  static Map<String, String> headers = {
-    'Authorization': 'Bearer [token]',
-  };
+  static Map<String, String> headers = {};
   static FindOrderCall findOrderCall = FindOrderCall();
 }
 
@@ -81,10 +79,10 @@ class FindOrderCall {
       callName: 'Find Order',
       apiUrl: '${baseUrl}/orders',
       callType: ApiCallType.GET,
-      headers: {
-        'Authorization': 'Bearer ${token}',
+      headers: {},
+      params: {
+        'token': token,
       },
-      params: {},
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -119,6 +117,9 @@ class ApiPagingParams {
 }
 
 String _toEncodable(dynamic item) {
+  if (item is DocumentReference) {
+    return item.path;
+  }
   return item;
 }
 

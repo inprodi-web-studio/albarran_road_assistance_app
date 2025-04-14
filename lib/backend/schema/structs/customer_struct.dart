@@ -1,16 +1,19 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import '/backend/schema/util/schema_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'index.dart';
+import '/backend/schema/util/firestore_util.dart';
+
 import '/flutter_flow/flutter_flow_util.dart';
 
-class CustomerStruct extends BaseStruct {
+class CustomerStruct extends FFFirebaseStruct {
   CustomerStruct({
     String? name,
     String? phone,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _name = name,
-        _phone = phone;
+        _phone = phone,
+        super(firestoreUtilData);
 
   // "name" field.
   String? _name;
@@ -82,8 +85,77 @@ class CustomerStruct extends BaseStruct {
 CustomerStruct createCustomerStruct({
   String? name,
   String? phone,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     CustomerStruct(
       name: name,
       phone: phone,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+CustomerStruct? updateCustomerStruct(
+  CustomerStruct? customer, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    customer
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addCustomerStructData(
+  Map<String, dynamic> firestoreData,
+  CustomerStruct? customer,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (customer == null) {
+    return;
+  }
+  if (customer.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && customer.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final customerData = getCustomerFirestoreData(customer, forFieldValue);
+  final nestedData = customerData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = customer.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getCustomerFirestoreData(
+  CustomerStruct? customer, [
+  bool forFieldValue = false,
+]) {
+  if (customer == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(customer.toMap());
+
+  // Add any Firestore field values
+  customer.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getCustomerListFirestoreData(
+  List<CustomerStruct>? customers,
+) =>
+    customers?.map((e) => getCustomerFirestoreData(e, true)).toList() ?? [];
