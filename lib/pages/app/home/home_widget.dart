@@ -1,4 +1,4 @@
-import '/auth/custom_auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -82,7 +82,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           child: FutureBuilder<ApiCallResponse>(
             future: (_model.apiRequestCompleter ??= Completer<ApiCallResponse>()
                   ..complete(OrdersGroup.findOrderCall.call(
-                    token: currentAuthenticationToken,
+                    token: currentJwtToken,
                   )))
                 .future,
             builder: (context, snapshot) {

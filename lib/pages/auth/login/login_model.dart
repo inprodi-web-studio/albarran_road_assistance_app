@@ -1,4 +1,3 @@
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'login_widget.dart' show LoginWidget;
@@ -38,8 +37,6 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
 
   // Stores action output result for [Validate Form] action in Button widget.
   bool? formValidation;
-  // Stores action output result for [Backend Call - API (Login)] action in Button widget.
-  ApiCallResponse? loginOutput;
 
   @override
   void initState(BuildContext context) {

@@ -1,16 +1,19 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import '/backend/schema/util/schema_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'index.dart';
+import '/backend/schema/util/firestore_util.dart';
+
 import '/flutter_flow/flutter_flow_util.dart';
 
-class LocationStruct extends BaseStruct {
+class LocationStruct extends FFFirebaseStruct {
   LocationStruct({
     String? latitude,
     String? longitude,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _latitude = latitude,
-        _longitude = longitude;
+        _longitude = longitude,
+        super(firestoreUtilData);
 
   // "latitude" field.
   String? _latitude;
@@ -82,8 +85,77 @@ class LocationStruct extends BaseStruct {
 LocationStruct createLocationStruct({
   String? latitude,
   String? longitude,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     LocationStruct(
       latitude: latitude,
       longitude: longitude,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+LocationStruct? updateLocationStruct(
+  LocationStruct? location, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    location
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addLocationStructData(
+  Map<String, dynamic> firestoreData,
+  LocationStruct? location,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (location == null) {
+    return;
+  }
+  if (location.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && location.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final locationData = getLocationFirestoreData(location, forFieldValue);
+  final nestedData = locationData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = location.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getLocationFirestoreData(
+  LocationStruct? location, [
+  bool forFieldValue = false,
+]) {
+  if (location == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(location.toMap());
+
+  // Add any Firestore field values
+  location.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getLocationListFirestoreData(
+  List<LocationStruct>? locations,
+) =>
+    locations?.map((e) => getLocationFirestoreData(e, true)).toList() ?? [];

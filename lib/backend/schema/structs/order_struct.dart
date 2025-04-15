@@ -1,10 +1,13 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class OrderStruct extends BaseStruct {
+class OrderStruct extends FFFirebaseStruct {
   OrderStruct({
     String? serice,
     String? subService,
@@ -13,13 +16,15 @@ class OrderStruct extends BaseStruct {
     CustomerStruct? customer,
     LocationStruct? location,
     int? id,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _serice = serice,
         _subService = subService,
         _autoInfo = autoInfo,
         _stage = stage,
         _customer = customer,
         _location = location,
-        _id = id;
+        _id = id,
+        super(firestoreUtilData);
 
   // "serice" field.
   String? _serice;
@@ -208,13 +213,97 @@ OrderStruct createOrderStruct({
   CustomerStruct? customer,
   LocationStruct? location,
   int? id,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     OrderStruct(
       serice: serice,
       subService: subService,
       autoInfo: autoInfo,
       stage: stage,
-      customer: customer ?? CustomerStruct(),
-      location: location ?? LocationStruct(),
+      customer: customer ?? (clearUnsetFields ? CustomerStruct() : null),
+      location: location ?? (clearUnsetFields ? LocationStruct() : null),
       id: id,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+OrderStruct? updateOrderStruct(
+  OrderStruct? order, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    order
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addOrderStructData(
+  Map<String, dynamic> firestoreData,
+  OrderStruct? order,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (order == null) {
+    return;
+  }
+  if (order.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && order.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final orderData = getOrderFirestoreData(order, forFieldValue);
+  final nestedData = orderData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = order.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getOrderFirestoreData(
+  OrderStruct? order, [
+  bool forFieldValue = false,
+]) {
+  if (order == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(order.toMap());
+
+  // Handle nested data for "customer" field.
+  addCustomerStructData(
+    firestoreData,
+    order.hasCustomer() ? order.customer : null,
+    'customer',
+    forFieldValue,
+  );
+
+  // Handle nested data for "location" field.
+  addLocationStructData(
+    firestoreData,
+    order.hasLocation() ? order.location : null,
+    'location',
+    forFieldValue,
+  );
+
+  // Add any Firestore field values
+  order.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getOrderListFirestoreData(
+  List<OrderStruct>? orders,
+) =>
+    orders?.map((e) => getOrderFirestoreData(e, true)).toList() ?? [];
