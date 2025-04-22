@@ -14,7 +14,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class AuthGroup {
   static String getBaseUrl() =>
-      'https://mayfly-intimate-polliwog.ngrok-free.app/api';
+      'https://road-assistance-api-eyflz.ondigitalocean.app/api';
   static Map<String, String> headers = {};
   static LoginCall loginCall = LoginCall();
 }
@@ -62,7 +62,7 @@ class OrdersGroup {
   static String getBaseUrl({
     String? token = '',
   }) =>
-      'https://mayfly-intimate-polliwog.ngrok-free.app/api';
+      'https://road-assistance-api-eyflz.ondigitalocean.app/api';
   static Map<String, String> headers = {};
   static FindOrderCall findOrderCall = FindOrderCall();
 }
