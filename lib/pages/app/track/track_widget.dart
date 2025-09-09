@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:albarran_road_assistant/auth/firebase_auth/auth_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart' as gmaps;
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -8,6 +9,7 @@ import 'package:http/http.dart' as http;
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'track_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 export 'track_model.dart';
 
 class TrackWidget extends StatefulWidget {
@@ -100,6 +102,25 @@ class _TrackWidgetState extends State<TrackWidget> {
     }
   }
 
+ Future<void> updateUserLocationInFirestore(LocationData loc, String? newEstimatedTime) async {
+    Map<String, dynamic> dataToUpdate = {
+      "currentLocation": {
+        "latitude": loc.latitude,
+        "longitude": loc.longitude,
+        "heading": loc.heading ?? 0,
+        "updatedAt": FieldValue.serverTimestamp(),
+      },
+    };
+
+    if (newEstimatedTime != null) {
+      dataToUpdate["estimatedTime"] = newEstimatedTime;
+    }
+    await FirebaseFirestore.instance
+        .collection("users")
+        .doc(currentUserUid)
+        .update(dataToUpdate);
+  }
+
   // Obtiene la ubicación actual y actualiza la cámara y marcadores.
   // La primera vez se fija la fuente (sourceLocation) con la ubicación actual.
   void getCurrentLocation() async {
@@ -117,26 +138,34 @@ class _TrackWidgetState extends State<TrackWidget> {
 
       // Mueve la cámara a la ubicación actual (origen fija) si se está siguiendo al usuario.
       if (_shouldFollowUser) {
+        double currentBearing = currentLoc.heading ?? 0;
         await controller.animateCamera(gmaps.CameraUpdate.newCameraPosition(
           gmaps.CameraPosition(
-              target: sourceLocation, zoom: 18, tilt: 59, bearing: -70),
+              target: sourceLocation,
+              zoom: 18,
+              tilt: 59,
+              bearing: currentBearing),
         ));
       }
 
       await updateEstimatedTime(sourceLocation);
       await getPolyPoints();
+      await updateUserLocationInFirestore(currentLoc, estimatedTime);
 
       // Escucha los cambios de ubicación.
       _location.onLocationChanged.listen((LocationData newLocation) async {
+        await updateUserLocationInFirestore(newLocation, null);
         // Si se está siguiendo al usuario, mueve la cámara a la nueva ubicación.
         if (_shouldFollowUser) {
+          double currentBearing = newLocation.heading ?? 0;
+
           await controller.animateCamera(gmaps.CameraUpdate.newCameraPosition(
             gmaps.CameraPosition(
               target:
                   gmaps.LatLng(newLocation.latitude!, newLocation.longitude!),
               zoom: 18,
               tilt: 59,
-              bearing: -70,
+              bearing: currentBearing,
             ),
           ));
         }
@@ -177,6 +206,15 @@ class _TrackWidgetState extends State<TrackWidget> {
           setState(() {
             estimatedTime = durationText;
           });
+
+          if (locationData != null) {
+            await FirebaseFirestore.instance
+                .collection("users")
+                .doc(currentUserUid)
+                .update({
+              "estimatedTime": durationText,
+            });
+          }
         } else {
           print("Estructura de datos inesperada: $data");
         }
@@ -226,6 +264,8 @@ class _TrackWidgetState extends State<TrackWidget> {
             onMapCreated: (controller) {
               _googleMapController.complete(controller);
             },
+            myLocationButtonEnabled: false,
+            compassEnabled: false,
             // Detecta cuando el usuario empieza a mover la cámara.
             onCameraMoveStarted: () {
               // Si el usuario interactúa, desactiva el seguimiento automático.
@@ -303,6 +343,7 @@ class _TrackWidgetState extends State<TrackWidget> {
                       _shouldFollowUser = true;
                     });
                     final controller = await _googleMapController.future;
+                    double currentBearing = locationData!.heading ?? 0;
                     await controller.animateCamera(
                       gmaps.CameraUpdate.newCameraPosition(
                         gmaps.CameraPosition(
@@ -312,7 +353,7 @@ class _TrackWidgetState extends State<TrackWidget> {
                                   .longitude!), // Ubicación actual del usuario.
                           zoom: 18,
                           tilt: 59,
-                          bearing: -70,
+                          bearing: currentBearing,
                         ),
                       ),
                     );
