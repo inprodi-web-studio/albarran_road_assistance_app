@@ -298,7 +298,8 @@ Map<String, dynamic> getOrderFirestoreData(
   );
 
   // Add any Firestore field values
-  order.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(order.firestoreUtilData.fieldValues)
+      .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }
