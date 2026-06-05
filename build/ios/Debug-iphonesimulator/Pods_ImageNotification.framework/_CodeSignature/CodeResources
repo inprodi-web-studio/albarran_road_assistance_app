@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		NBWTILQULaiqYBORqPZRfZJEFUg=
+		1rCToPTiDJh3KVDj+eJfW3Tt0MM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -21,10 +21,6 @@
 	<dict>
 		<key>Headers/Pods-ImageNotification-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			483I5XnUsZdIAJu+1El/hCij/vc=
-			</data>
 			<key>hash2</key>
 			<data>
 			l61usRc0/ussOKOPUQNjMrhQ1VWD/cEAtQNR7dlAFOA=
@@ -32,10 +28,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gW7Dq+hye5zjRqWV6cbWMER2BAQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			+o6IloSlagQaMmmXV29yq4ON8zRiLsjVoSoceYfgW4k=

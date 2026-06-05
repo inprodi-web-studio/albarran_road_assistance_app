@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0hnEB7CQixW77WHfX91OmZyx05Q=
+		VgdSCyGFOnuA8+upLpFCltDnt2I=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -25,10 +25,6 @@
 	<dict>
 		<key>Headers/FLTFirebasePerformancePlugin.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			eu0SbBJpKV6IDgr6OnjP2ktwPMA=
-			</data>
 			<key>hash2</key>
 			<data>
 			KrmMU7WzMmvuA0aEjXL1NHUqUM52YFy2rWgCRUs78n4=
@@ -36,10 +32,6 @@
 		</dict>
 		<key>Headers/firebase_performance-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XQTK6vOUbfqEozoe/IF8scV8uas=
-			</data>
 			<key>hash2</key>
 			<data>
 			CMbWWEGAzokuZEaa4I1eQUe/TUdKZRGtjJFlY3RNmdc=
@@ -47,10 +39,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			corGfGZKqMe2qqKHov0J/lXGF8o=
-			</data>
 			<key>hash2</key>
 			<data>
 			h4e+6HB5SebRDRyLUvLD7o0V1SZaSVItkJu35y0GteA=

@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		czmUELbyxpShHvX3WkBCQo1d+tc=
+		sJQZP6aQrV6sfmdPbP5xWSsS7NQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -25,10 +25,6 @@
 	<dict>
 		<key>Headers/FIRMessagingInterop.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/ZWNHav8rMaTXBiJ4KAzHhaHdbM=
-			</data>
 			<key>hash2</key>
 			<data>
 			RCAOmj7qkyHU48RiTH0guYuskmUd6kCaEtkUmYSHfIc=
@@ -36,10 +32,6 @@
 		</dict>
 		<key>Headers/FirebaseMessagingInterop-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yh+W3Z/cPi7Vs6BZwYJ05kPAy9M=
-			</data>
 			<key>hash2</key>
 			<data>
 			I7jVdp1kiykxYx7rgzPqxOXSEdtFy5tZOiNiOxOoLks=
@@ -47,10 +39,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uxtb6fjfZmtk18Op9pDUxC5OUjo=
-			</data>
 			<key>hash2</key>
 			<data>
 			yLbVdTWxjTPTJ8tEdCXnzi+E/s0kxh7ue09lMlXVpJ0=

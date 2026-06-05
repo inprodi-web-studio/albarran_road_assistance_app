@@ -42,7 +42,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		+J7pVz4Dp4oATfm7UdhOudmr+zo=
+		GRAoicfrt0u0mcm02KJflsBPNkg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -53,10 +53,6 @@
 	<dict>
 		<key>Headers/FIRAppInternal.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kPW59fJxvV+4PfwGAz+GOKfu7YQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			yhk4G9K2fHU2KG8Wab6NFvtu/Nqh/BFh+C3QEMMId0c=
@@ -64,10 +60,6 @@
 		</dict>
 		<key>Headers/FIRComponent.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0FOs6U9IDwAjp7yMj5DPH0imEOU=
-			</data>
 			<key>hash2</key>
 			<data>
 			t+I1+oX+hVbrmGFP7V4B/7DMeGHmYjRODL/83QxRYi8=
@@ -75,10 +67,6 @@
 		</dict>
 		<key>Headers/FIRComponentContainer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6Y5MqHWB5AXb4SnDZci9/exaXvA=
-			</data>
 			<key>hash2</key>
 			<data>
 			2YIxkJ2x8JQmU4eI0ped0M/ezwIWltFzfNH6ihPo0HY=
@@ -86,10 +74,6 @@
 		</dict>
 		<key>Headers/FIRComponentType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mZ+4A3h/1r6Nl12+P1ukV8T32So=
-			</data>
 			<key>hash2</key>
 			<data>
 			Pa9Om62/b55gMl8a0cF52VL/FTEma7e/3C4HetpspYY=
@@ -97,10 +81,6 @@
 		</dict>
 		<key>Headers/FIRHeartbeatLogger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ndhTU7Jf9D5ML6gXmRMz4DpwjZA=
-			</data>
 			<key>hash2</key>
 			<data>
 			GcRy+u8CDhBtTcXctoFkMorkvXW9ewm7m6refDbhBRQ=
@@ -108,10 +88,6 @@
 		</dict>
 		<key>Headers/FIRLibrary.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uLoXJ1Vk9+bltysnqh6LHCroVPI=
-			</data>
 			<key>hash2</key>
 			<data>
 			F63oxnpvc7cT+L7qZJ0leZQVmgNihyqirqCLHu742cQ=
@@ -119,10 +95,6 @@
 		</dict>
 		<key>Headers/FIRLogger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			f4oelkMaE8nSazChXtlf542GFzA=
-			</data>
 			<key>hash2</key>
 			<data>
 			mZwNvVEFdxfliGsxNw+jf2dnbuUaUccEF+/WFt1AvoM=
@@ -130,10 +102,6 @@
 		</dict>
 		<key>Headers/FirebaseCoreExtension-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AXWOHa4MYktzaNSNfkii6QYM+C8=
-			</data>
 			<key>hash2</key>
 			<data>
 			uTINlf2gmT1SZFPVQcG5IXRDAJ1QreSyeVBXyb40izs=
@@ -141,10 +109,6 @@
 		</dict>
 		<key>Headers/FirebaseCoreInternal.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HdKa7SNwP4XW25NfOnEDFcmsTIs=
-			</data>
 			<key>hash2</key>
 			<data>
 			omdo50F14EuRrNSTHCr/zozF0YSjd/Is6IaVjF03Low=
@@ -152,10 +116,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zhQGHXVcqb9psht1Ake4j97II0Q=
-			</data>
 			<key>hash2</key>
 			<data>
 			NY1Qc4uT+e+pD9Apo/P+O/zAHpkXskzkt2pWIvGplFU=

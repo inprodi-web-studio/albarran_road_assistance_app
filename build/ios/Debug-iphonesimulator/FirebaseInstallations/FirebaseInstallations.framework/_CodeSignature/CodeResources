@@ -26,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		dTOgBqcuyrZaU/EnsqEz/QXW31c=
+		M03Xb/X6bIC53AnWRLebOMfwXk0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -37,10 +37,6 @@
 	<dict>
 		<key>Headers/FIRInstallations.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BmsdUI3E4c0dyJOJ40pqUZmNJ/Q=
-			</data>
 			<key>hash2</key>
 			<data>
 			TuVRLfOYnKCV4eXPx9IQZKxbm14kmRc7O8Cux4mkPXI=
@@ -48,10 +44,6 @@
 		</dict>
 		<key>Headers/FIRInstallationsAuthTokenResult.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			z60m46zEzh9yn4Bt7VIlBSceIV0=
-			</data>
 			<key>hash2</key>
 			<data>
 			Ck0312ZhoNq87GtsV7zjdxyY+w0S2FSfn/p4lfKtT+s=
@@ -59,10 +51,6 @@
 		</dict>
 		<key>Headers/FIRInstallationsErrors.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TNCBETR4uiVb+pYBg4HMYi/1xqk=
-			</data>
 			<key>hash2</key>
 			<data>
 			1tBdUX5MYfXp5LbH4fmdcCsw5TPv5GobFGnyMz3zdQI=
@@ -70,10 +58,6 @@
 		</dict>
 		<key>Headers/FirebaseInstallations-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			77D4JhMPM5LuwfY2Fy9TverO2kc=
-			</data>
 			<key>hash2</key>
 			<data>
 			ydRKuFg2IROTtRE3o1fwZCI0H5QHzvkEQwIhTFJWfd0=
@@ -81,10 +65,6 @@
 		</dict>
 		<key>Headers/FirebaseInstallations.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZfdzPat4xYq3QhUuKo1MaY6koQM=
-			</data>
 			<key>hash2</key>
 			<data>
 			VFpFA8n5RF/GLv0N9QEr0IoYtDzt72v7vlrDv/hjA0k=
@@ -92,10 +72,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dmkv8wZIrCTkLk4k1v8n+xLh5Dw=
-			</data>
 			<key>hash2</key>
 			<data>
 			33Bhw6DIixw6oOJuRbbAXLu3Vdd9LW6MNE3zxH1N7NE=

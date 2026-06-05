@@ -22,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		AriuAWVTCPry0oBEa7qzKRB/FII=
+		81PZCRM+5XAYQLfJpqjN5sCgHRs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -33,10 +33,6 @@
 	<dict>
 		<key>Headers/FIRExperimentController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			d+yAHqpqHt8H83pIJz03qNahwgQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			GyiwV71RGRWx/+dB2UWboqe7Qsk7zvZw5Bd++rgn4yE=
@@ -44,10 +40,6 @@
 		</dict>
 		<key>Headers/FIRLifecycleEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			COHPNJA9doDM1+51Uguves1hXfw=
-			</data>
 			<key>hash2</key>
 			<data>
 			AxUT2laR0bT4iGsqzCBt5gtc2oSr+igEbHC4wsN5p6w=
@@ -55,10 +47,6 @@
 		</dict>
 		<key>Headers/FirebaseABTesting-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TPyTWkBaSOTNUTu/lA6Tbr+ZSXU=
-			</data>
 			<key>hash2</key>
 			<data>
 			ij4FjP3ueu76paE1RJo11dhO8zl13Xs/hNg0hzO6HFs=
@@ -66,10 +54,6 @@
 		</dict>
 		<key>Headers/FirebaseABTesting.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kqvkXjcwi7NMgjtttvrOW71AAYo=
-			</data>
 			<key>hash2</key>
 			<data>
 			n0fobqFnyLAXt448lwWG/ryc6UMTWluRn+o5SK73+Ag=
@@ -77,10 +61,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			P7x00WDwXUuhYPcIyh+jLjCi/jY=
-			</data>
 			<key>hash2</key>
 			<data>
 			9EalATpyoBjmeWcYR0F2ENNvkzjbarvnvr/LeEb5vNE=

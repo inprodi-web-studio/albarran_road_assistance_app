@@ -26,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		4NWsdg6ImvWau+E5+YCuZq/c6v8=
+		pQ/u23yklLnDsjjzYb7KK6889iY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -37,10 +37,6 @@
 	<dict>
 		<key>Headers/RCAActionProtocol.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rIk/wpixypHQWEuTh7Oan4CZDIQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			Aca2QkX5c335kvawL+Tu6GDEUu74fUFzOtBpTtXoi8k=
@@ -48,10 +44,6 @@
 		</dict>
 		<key>Headers/RCARecaptchaClientProtocol.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			G3IkfXx3yejqtesgeVYHzdUIunY=
-			</data>
 			<key>hash2</key>
 			<data>
 			MkmOVr3vZPiKx4T/vjKbXlvAiZQjn9s1mxsbAQpg26I=
@@ -59,10 +51,6 @@
 		</dict>
 		<key>Headers/RCARecaptchaProtocol.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XRc8rWRINVF/fDxJKsyJbM4hjJE=
-			</data>
 			<key>hash2</key>
 			<data>
 			yMmPYPxjU7kG/HaavMr/Yvpqx42/SakpQK1hWwdf9s8=
@@ -70,10 +58,6 @@
 		</dict>
 		<key>Headers/RecaptchaInterop-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7TQVM87fBATI0j8B7TtWefVimFI=
-			</data>
 			<key>hash2</key>
 			<data>
 			ognmVz2XO5o44SbzejxX9iyjaCpJwMCzbxq3lGx1INY=
@@ -81,10 +65,6 @@
 		</dict>
 		<key>Headers/RecaptchaInterop.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Thc5ZCKdMl/TgrouZY05Lpq6608=
-			</data>
 			<key>hash2</key>
 			<data>
 			jhdFffF+Urvb7sIEPIC3v1LMzOsw/nnndrgpKLGT35I=
@@ -92,10 +72,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dPi/hoMFQ2JAEA2u1CHYJcQnS/Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			ooqy/roI3feuqnOc6TG3rGLstHi0dZvt925hnQV/uH0=

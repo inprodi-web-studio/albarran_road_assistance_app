@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/cloud_functions-Swift.h</key>
 		<data>
-		qjqtLcHiAVoNOKEBFP8NYPIdjfw=
+		2AYYxEIVdA7wZFCE+3n0LRW/Dn4=
 		</data>
 		<key>Headers/cloud_functions-umbrella.h</key>
 		<data>
@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		NyffRO43SHZLvBZMXXwE6GyUHpI=
+		s3oV++ABZmCO25z6kJoWh12R86o=
 		</data>
 		<key>Modules/cloud_functions.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		vX5MHKydu0hrvVn8EwnW81PYynM=
+		1P60O/D0CILwuZ5xAcwSm7k3vMA=
 		</data>
 		<key>Modules/cloud_functions.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		FFwexFnT50McvbjrNFHXNXBEUyE=
+		4MNZYaMmelfma2oWq5hdE1+Es4k=
 		</data>
 		<key>Modules/cloud_functions.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/cloud_functions.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		tAZZi96ijT5kPwf2ajpTIVNLubw=
+		kqS2nDdNBHnDjPAs4Aay/LWpY2k=
 		</data>
 		<key>Modules/cloud_functions.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		wIsmnVZq0dwyjGalQmvPtKd1vFo=
+		EjQop+wTyMIyxSl+HZv306M2nvs=
 		</data>
 		<key>Modules/cloud_functions.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -42,36 +42,28 @@
 		</data>
 		<key>Modules/cloud_functions.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		LnG/1DR0gXZAb0r6i5PbeYeXrO4=
+		RVlIBCQTqt5pK3l08gbVIuafGWE=
 		</data>
 		<key>Modules/cloud_functions.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		yxkkUxX1E18+41y1BpXdh1QZilE=
+		Mx87YztFc+K8jShqT6ncPlRKYHM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		qopUhDndBFWNIL+2zZtDWZXNMSg=
+		Ueu5d/JwCZa6joBV4ApiPuLjHqk=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Headers/cloud_functions-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qjqtLcHiAVoNOKEBFP8NYPIdjfw=
-			</data>
 			<key>hash2</key>
 			<data>
-			8VMT2Z50lkdKuFf1909UHgPveQgI8+IJGvHrc3taVnQ=
+			yjLwYw6teuvorLD9GhbnZyyUwOcFbwecip8LFno6la0=
 			</data>
 		</dict>
 		<key>Headers/cloud_functions-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			69VoSzHn2lcDSizm17bxo6XoxLg=
-			</data>
 			<key>hash2</key>
 			<data>
 			RKzQXa+cTdaXpB5EkmuaxCsirr9S7CQ964e6h5r0Q0A=
@@ -79,32 +71,20 @@
 		</dict>
 		<key>Modules/cloud_functions.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vX5MHKydu0hrvVn8EwnW81PYynM=
-			</data>
 			<key>hash2</key>
 			<data>
-			WEfG6q67TzVWKJLAL+C6LTGOfKBuTSut25aHmO5ODf4=
+			SyGg0T8d5pWRiHIekIjVpRFmMeSRnFU6amvF/KFJDZ4=
 			</data>
 		</dict>
 		<key>Modules/cloud_functions.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FFwexFnT50McvbjrNFHXNXBEUyE=
-			</data>
 			<key>hash2</key>
 			<data>
-			oaV9x/AS4byXExyKZQCswqFIEWH5XyC7SQc5FPDjkUQ=
+			doYlFvV6QyD8Lm86TehzIhyTzt8hLyrrriPXbie2B34=
 			</data>
 		</dict>
 		<key>Modules/cloud_functions.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gcwBsH4BgyFY4sVtNt+/xOKS3vY=
-			</data>
 			<key>hash2</key>
 			<data>
 			Qnesa0n4URGWAopawg9bGx36dUwkYV00BoCJ8LFzlyg=
@@ -112,32 +92,20 @@
 		</dict>
 		<key>Modules/cloud_functions.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tAZZi96ijT5kPwf2ajpTIVNLubw=
-			</data>
 			<key>hash2</key>
 			<data>
-			LYJSWuAd8S76ZyKqv22oNJfThHdv1XXIJ1pvZOGVg6s=
+			wUycoMkquF8v0P/1ciXQCw1HfB6fPb7xd9Xfhuoje7E=
 			</data>
 		</dict>
 		<key>Modules/cloud_functions.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			wIsmnVZq0dwyjGalQmvPtKd1vFo=
-			</data>
 			<key>hash2</key>
 			<data>
-			nDS/khr2aJXGEGVsK2xeTHTkZ5mRnDZ9KWJwV1VKqdU=
+			p9c5/mypm3pXtxV5jCEWEIxw65TJFx0B3cCNnO6VAjc=
 			</data>
 		</dict>
 		<key>Modules/cloud_functions.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gcwBsH4BgyFY4sVtNt+/xOKS3vY=
-			</data>
 			<key>hash2</key>
 			<data>
 			Qnesa0n4URGWAopawg9bGx36dUwkYV00BoCJ8LFzlyg=
@@ -145,35 +113,23 @@
 		</dict>
 		<key>Modules/cloud_functions.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LnG/1DR0gXZAb0r6i5PbeYeXrO4=
-			</data>
 			<key>hash2</key>
 			<data>
-			3ZdGc6P/1G9bEmCo918EV9ZJRroZwH0c3+PDQbV35q8=
+			bdFZeBXSrx0AhO4mdEyox8G85/PHG62pUlysAf+8aSY=
 			</data>
 		</dict>
 		<key>Modules/cloud_functions.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yxkkUxX1E18+41y1BpXdh1QZilE=
-			</data>
 			<key>hash2</key>
 			<data>
-			ywIikDXZ5Tf3vXWpHkD63I3DeK4y/jK9uc4haDPfiGQ=
+			9ujpqNFGmvX1AKYYhQ+gH4lqp/U1sU1iOOPCE2IYJLY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qopUhDndBFWNIL+2zZtDWZXNMSg=
-			</data>
 			<key>hash2</key>
 			<data>
-			b5S/Z4EUmvVWIye1Q3KRDzDbO4sTXg9jawvZQJBnE+M=
+			SQJsIBdIBWXQI55EBYE9b7j4Xq9I5A7fmYXobH0rgt0=
 			</data>
 		</dict>
 	</dict>

@@ -62,7 +62,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		iGjURXEhgTtGB1bMiTnj/leBrj8=
+		9lDeysbMvR/Ywi3cWU6CYlouuWo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -73,10 +73,6 @@
 	<dict>
 		<key>Headers/AppCheckCore-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			io6m/zoNImB0vwDk2p2uPRnW2MM=
-			</data>
 			<key>hash2</key>
 			<data>
 			ODq0bWeFLej7WX8mFZx3VE5hmnQ3OiS0EujGmOHhGRE=
@@ -84,10 +80,6 @@
 		</dict>
 		<key>Headers/AppCheckCore.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			aPlnxK0s7N//HPGiQQ/QfhVg2yI=
-			</data>
 			<key>hash2</key>
 			<data>
 			Ul2Yz9IdQWfkM517ColMkCWkFU4f24P47g1ukh9GRiQ=
@@ -95,10 +87,6 @@
 		</dict>
 		<key>Headers/GACAppAttestProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xWAx05hGUKfPizHj8o8Yr5J2FuM=
-			</data>
 			<key>hash2</key>
 			<data>
 			Zd1/HFWmGn2/S70LLb+AxTTgv0RbJWyluCNGOmN44LI=
@@ -106,10 +94,6 @@
 		</dict>
 		<key>Headers/GACAppCheck.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			sZi2pxCGlh6NQWKM0fRZYIYwGLU=
-			</data>
 			<key>hash2</key>
 			<data>
 			SSD7/oJnIjQrh7iaEOhEoKhzTG6vZopYt0Xx57oBjPs=
@@ -117,10 +101,6 @@
 		</dict>
 		<key>Headers/GACAppCheckAvailability.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fVbseaoEqNTv8Upk6CZ3MX3nXFw=
-			</data>
 			<key>hash2</key>
 			<data>
 			9qlaxqw8JMwDFpg5Lt2LgS9vPg6KLDgdkfRnKnUJUnI=
@@ -128,10 +108,6 @@
 		</dict>
 		<key>Headers/GACAppCheckDebugProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AzMDymxT2DONN6u+vBX6C+Q7dXs=
-			</data>
 			<key>hash2</key>
 			<data>
 			3xsAIgIqTbw7obTI20pkVbHjZtl3B7Bf+uD84HBzvUw=
@@ -139,10 +115,6 @@
 		</dict>
 		<key>Headers/GACAppCheckErrors.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uk1nlK658zjfXxvSCLCy2Bs//C0=
-			</data>
 			<key>hash2</key>
 			<data>
 			tea7EucVmldf1jdv2kSg/0qAHANq0/PyCQtdZiOvI4k=
@@ -150,10 +122,6 @@
 		</dict>
 		<key>Headers/GACAppCheckLogger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tVvjV7JP89xwZVe97qrGWCR/q7g=
-			</data>
 			<key>hash2</key>
 			<data>
 			5UJwq1jSIz9jA/ICAOY3enqBmqo/te7LuIf89nIICdE=
@@ -161,10 +129,6 @@
 		</dict>
 		<key>Headers/GACAppCheckProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gs+QGw4HIj4oJ7u/3SSyCyNzQsc=
-			</data>
 			<key>hash2</key>
 			<data>
 			z+3AeKhJbNOP05SSAJwWiUzt2BKPC2a9bixdpUDpSfA=
@@ -172,10 +136,6 @@
 		</dict>
 		<key>Headers/GACAppCheckSettings.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			CZFM9s27hFj6cGsp9ZLcKiIihs8=
-			</data>
 			<key>hash2</key>
 			<data>
 			BFhsucG+jeB1pCIu73wULTuXzo1DvN1kKzCKfeE9nDI=
@@ -183,10 +143,6 @@
 		</dict>
 		<key>Headers/GACAppCheckToken.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0lY/yJYhwhlLu0nHqyVX3jY6mPo=
-			</data>
 			<key>hash2</key>
 			<data>
 			t+sfWbd40XKR8j7Dy9B8+Ro2I+JLjkaRrhR8LEzcCEY=
@@ -194,10 +150,6 @@
 		</dict>
 		<key>Headers/GACAppCheckTokenDelegate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			egGd6XG0lov8g3XkFXTzbQeE3Hw=
-			</data>
 			<key>hash2</key>
 			<data>
 			gRawP18Ylo0qe6LPAcSw4BAoEENr1c2m+4TVSc7Tv6A=
@@ -205,10 +157,6 @@
 		</dict>
 		<key>Headers/GACAppCheckTokenResult.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YZqB3qf3RYWNqOfDfYU5w0d9PpI=
-			</data>
 			<key>hash2</key>
 			<data>
 			Kl1zaYA3RHRECoronYz14V9HtU8UBHo1duHZKRL0BLQ=
@@ -216,10 +164,6 @@
 		</dict>
 		<key>Headers/GACDeviceCheckProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6bSVwfSlB0z/9enIh/YOAvD7URU=
-			</data>
 			<key>hash2</key>
 			<data>
 			AG4gN3L0skthMgK5SQ+CJzsiYCajmBLyqFCppURGttM=
@@ -227,10 +171,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SHz6JdNenM83d2kwYbx+QjXUjeg=
-			</data>
 			<key>hash2</key>
 			<data>
 			MnQlVKUggD0ZiESNDK5Qja2zslxr3lLly0FO29lCRGY=

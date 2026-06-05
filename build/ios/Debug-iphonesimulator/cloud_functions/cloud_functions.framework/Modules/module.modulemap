@@ -7,5 +7,4 @@ framework module cloud_functions {
 
 module cloud_functions.Swift {
   header "cloud_functions-Swift.h"
-  requires objc
 }
