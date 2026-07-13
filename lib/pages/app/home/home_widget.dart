@@ -81,9 +81,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           top: true,
           child: FutureBuilder<ApiCallResponse>(
             future: (_model.apiRequestCompleter ??= Completer<ApiCallResponse>()
-                  ..complete(OrdersGroup.findOrderCall.call(
-                    token: currentJwtToken,
-                  )))
+                  ..complete(_model.findAssignedOrder()))
                 .future,
             builder: (context, snapshot) {
               // Customize what your widget looks like when it's loading.
@@ -100,17 +98,107 @@ class _HomeWidgetState extends State<HomeWidget> {
                 );
               }
               final columnFindOrderResponse = snapshot.data!;
+              final assignedOrder = OrdersGroup.findOrderCall.order(
+                columnFindOrderResponse.jsonBody,
+              );
+              final hasAssignedOrder = assignedOrder != null &&
+                  assignedOrder.hasId() &&
+                  assignedOrder.id > 0;
+              final hasNoAssignedOrder =
+                  assignedOrder != null && assignedOrder.id == -1;
+              final hasUnexpectedResponse =
+                  !columnFindOrderResponse.succeeded ||
+                      assignedOrder == null ||
+                      (!hasNoAssignedOrder && !hasAssignedOrder);
 
               return Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (OrdersGroup.findOrderCall
-                          .order(
-                            columnFindOrderResponse.jsonBody,
-                          )
-                          ?.id ==
-                      -1)
+                  if (hasUnexpectedResponse)
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.error_outline,
+                            color: FlutterFlowTheme.of(context).tertiary,
+                            size: 48.0,
+                          ),
+                          Text(
+                            'No pudimos cargar tus órdenes',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                          Text(
+                            'Intenta actualizar en unos segundos.',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Color(0x97FFFFFF),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  lineHeight: 1.5,
+                                ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 30.0, 0.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                safeSetState(() {
+                                  _model.apiRequestCompleter = null;
+                                  _model.queueRequestCompleter = null;
+                                });
+                                await _model.waitForApiRequestCompleted();
+                              },
+                              text: 'Actualizar',
+                              icon: Icon(
+                                FFIcons.karrowsClockwise1,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                size: 20.0,
+                              ),
+                              options: FFButtonOptions(
+                                width: double.infinity,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                iconAlignment: IconAlignment.end,
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                    ),
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                        ].divide(SizedBox(height: 4.0)),
+                      ),
+                    ),
+                  if (hasNoAssignedOrder)
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
@@ -160,8 +248,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 0.0, 30.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                safeSetState(
-                                    () => _model.apiRequestCompleter = null);
+                                safeSetState(() {
+                                  _model.apiRequestCompleter = null;
+                                  _model.queueRequestCompleter = null;
+                                });
                                 await _model.waitForApiRequestCompleted();
                               },
                               text: 'Actualizar',
@@ -195,12 +285,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         ].divide(SizedBox(height: 4.0)),
                       ),
                     ),
-                  if (OrdersGroup.findOrderCall
-                          .order(
-                            columnFindOrderResponse.jsonBody,
-                          )!
-                          .id >
-                      0)
+                  if (hasAssignedOrder)
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
@@ -218,9 +303,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Text(
-                                '#${OrdersGroup.findOrderCall.order(
-                                      columnFindOrderResponse.jsonBody,
-                                    )?.id.toString()}',
+                                '#${assignedOrder.id.toString()}',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -252,12 +335,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     ),
                                     Text(
                                       valueOrDefault<String>(
-                                        OrdersGroup.findOrderCall
-                                            .order(
-                                              columnFindOrderResponse.jsonBody,
-                                            )
-                                            ?.customer
-                                            .name,
+                                        assignedOrder.customer.name,
                                         'Cliente',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -315,6 +393,96 @@ class _HomeWidgetState extends State<HomeWidget> {
                         ),
                       ),
                     ),
+                  FutureBuilder<ApiCallResponse>(
+                    future: (_model.queueRequestCompleter ??=
+                            Completer<ApiCallResponse>()
+                              ..complete(_model.findQueuedOrders()))
+                        .future,
+                    builder: (context, queueSnapshot) {
+                      if (!queueSnapshot.hasData) {
+                        return SizedBox.shrink();
+                      }
+
+                      final queuedOrders = OrdersGroup.queuedOrdersCall
+                          .orders(queueSnapshot.data!.jsonBody);
+
+                      if (queuedOrders.isEmpty) {
+                        return SizedBox.shrink();
+                      }
+
+                      return Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 16.0, 20.0, 0.0),
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Text(
+                                  'Próximas órdenes',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                                ...queuedOrders.map(
+                                  (queuedOrder) => Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            '#${queuedOrder.id} - ${valueOrDefault<String>(queuedOrder.customer.name, 'Cliente')}',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  color:
+                                                      FlutterFlowTheme.of(context)
+                                                          .primaryText,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                        Text(
+                                          'En espera',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               );
             },

@@ -65,6 +65,8 @@ class OrdersGroup {
       'https://road-assistance-api-eyflz.ondigitalocean.app/api';
   static Map<String, String> headers = {};
   static FindOrderCall findOrderCall = FindOrderCall();
+  static QueuedOrdersCall queuedOrdersCall = QueuedOrdersCall();
+  static CompleteOrderCall completeOrderCall = CompleteOrderCall();
 }
 
 class FindOrderCall {
@@ -96,6 +98,91 @@ class FindOrderCall {
         response,
         r'''$''',
       ));
+}
+
+class QueuedOrdersCall {
+  Future<ApiCallResponse> call({
+    String? token = '',
+  }) async {
+    final baseUrl = OrdersGroup.getBaseUrl(
+      token: token,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Queued Orders',
+      apiUrl: '${baseUrl}/orders/queue',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'token': token,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List<OrderStruct> orders(dynamic response) {
+    final responseOrders = getJsonField(response, r'''$.data''', true);
+
+    if (responseOrders is! List) {
+      return [];
+    }
+
+    return responseOrders
+        .map(OrderStruct.maybeFromMap)
+        .whereType<OrderStruct>()
+        .toList();
+  }
+}
+
+class CompleteOrderCall {
+  Future<ApiCallResponse> call({
+    String? token = '',
+    int? orderId,
+    double? latitude,
+    double? longitude,
+    double? heading,
+    double? accuracy,
+    bool? confirmedOutsideRadius = false,
+  }) async {
+    final baseUrl = OrdersGroup.getBaseUrl(
+      token: token,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "latitude": $latitude,
+  "longitude": $longitude,
+  "heading": $heading,
+  "accuracy": $accuracy,
+  "confirmedOutsideRadius": $confirmedOutsideRadius
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Complete Order',
+      apiUrl: '${baseUrl}/orders/$orderId/complete',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'token': token,
+      },
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 /// End Orders Group Code
