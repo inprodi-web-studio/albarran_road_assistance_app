@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import '/services/agent_location_service.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -31,6 +32,32 @@ class _HomeWidgetState extends State<HomeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeModel());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (currentUserUid.isNotEmpty) {
+        AgentLocationService.instance.start(currentUserUid);
+      }
+    });
+  }
+
+  Color _locationStatusColor(AgentLocationTrackingStatus status) {
+    switch (status) {
+      case AgentLocationTrackingStatus.active:
+        return Colors.greenAccent;
+      case AgentLocationTrackingStatus.starting:
+      case AgentLocationTrackingStatus.foregroundOnly:
+        return Colors.amberAccent;
+      case AgentLocationTrackingStatus.stopped:
+      case AgentLocationTrackingStatus.serviceDisabled:
+      case AgentLocationTrackingStatus.permissionDenied:
+      case AgentLocationTrackingStatus.error:
+        return Colors.redAccent;
+    }
+  }
+
+  void _showLocationStatus() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(AgentLocationService.instance.statusMessage)),
+    );
   }
 
   @override
@@ -54,6 +81,20 @@ class _HomeWidgetState extends State<HomeWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           actions: [
+            AnimatedBuilder(
+              animation: AgentLocationService.instance,
+              builder: (context, _) => IconButton(
+                onPressed: _showLocationStatus,
+                tooltip: AgentLocationService.instance.statusMessage,
+                icon: Icon(
+                  Icons.location_on,
+                  color: _locationStatusColor(
+                    AgentLocationService.instance.status,
+                  ),
+                  size: 22.0,
+                ),
+              ),
+            ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
               child: FlutterFlowIconButton(
@@ -67,6 +108,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
                 onPressed: () async {
                   GoRouter.of(context).prepareAuthEvent();
+                  await AgentLocationService.instance.stop(markOffline: true);
                   await authManager.signOut();
                   GoRouter.of(context).clearRedirectLocation();
 

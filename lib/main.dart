@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,6 +12,7 @@ import 'backend/push_notifications/push_notifications_util.dart';
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'services/agent_location_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,6 +57,7 @@ class _MyAppState extends State<MyApp> {
 
   final authUserSub = authenticatedUserStream.listen((_) {});
   final fcmTokenSub = fcmTokenUserStream.listen((_) {});
+  late final StreamSubscription<User?> locationAuthSub;
 
   @override
   void initState() {
@@ -64,6 +69,16 @@ class _MyAppState extends State<MyApp> {
       ..listen((user) {
         _appStateNotifier.update(user);
       });
+    locationAuthSub = FirebaseAuth.instance.authStateChanges().listen((user) {
+      if (user == null) {
+        unawaited(
+          AgentLocationService.instance.stop(markOffline: false),
+        );
+        return;
+      }
+
+      unawaited(AgentLocationService.instance.start(user.uid));
+    });
     jwtTokenStream.listen((_) {});
     Future.delayed(
       Duration(milliseconds: 1000),
@@ -75,6 +90,7 @@ class _MyAppState extends State<MyApp> {
   void dispose() {
     authUserSub.cancel();
     fcmTokenSub.cancel();
+    locationAuthSub.cancel();
     super.dispose();
   }
 

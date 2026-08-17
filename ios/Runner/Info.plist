@@ -52,12 +52,19 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Esta aplicación requiere acceso a tu ubicación en todo momento para ofrecer funcionalidades avanzadas, incluso cuando la app está en segundo plano.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Tu ubicación se comparte mientras mantienes una sesión activa para que podamos asignarte y monitorear servicios, incluso cuando la app está en segundo plano.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Esta aplicación utiliza tu ubicación para proporcionar servicios personalizados mientras la app está en uso.</string>
 
 
 
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>
+		<string>location</string>
         <string>remote-notification</string>
     </array>
 
